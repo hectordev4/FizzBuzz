@@ -2,6 +2,16 @@ import type { FizzBuzzResponse } from '../../types/fizzbuzz.types';
 
 
 export function fizzer(number: number): FizzBuzzResponse {
+    
+    const response: FizzBuzzResponse = {
+        status: 'success',
+        message: 'Number evaluated successfully',
+        data: {
+            number,
+            result: ''
+        }
+    };
+    
     let result: string = '';
 
     if (number % 3 === 0) {
@@ -17,6 +27,7 @@ export function fizzer(number: number): FizzBuzzResponse {
         result = number.toString();
     }
 
+    response.data.result = result;
 
-    return;
+    return response;
 }
